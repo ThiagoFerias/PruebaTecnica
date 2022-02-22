@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB_PruebTecModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Permisos">
+    <Key>
+      <PropertyRef Name="IdPermiso" />
+    </Key>
+    <Property Name="IdPermiso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Vista" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Ubicacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Publicaciones">
+    <Key>
+      <PropertyRef Name="IdPublicacion" />
+    </Key>
+    <Property Name="IdPublicacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NombrePublicacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DescripcionPublicacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ImgPublicacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Visible" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="IdRol" />
+    </Key>
+    <Property Name="IdRol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NombreRol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Roles_Permisos">
+    <Key>
+      <PropertyRef Name="IdRolPermiso" />
+    </Key>
+    <Property Name="IdRolPermiso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdRol" Type="Int32" Nullable="false" />
+    <Property Name="IdPermiso" Type="Int32" Nullable="false" />
+    <Property Name="Estado" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="DB_PruebTecEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Permisos" EntityType="Self.Permisos" />
+    <EntitySet Name="Publicaciones" EntityType="Self.Publicaciones" />
+    <EntitySet Name="Roles" EntityType="Self.Roles" />
+    <EntitySet Name="Roles_Permisos" EntityType="Self.Roles_Permisos" />
+    <EntitySet Name="Usuarios" EntityType="DB_PruebTecModel.Usuarios" />
+  </EntityContainer>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="IdUsuario" />
+    </Key>
+    <Property Name="IdUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PrimerNombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SegundoNombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PrimerApellido" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SegundoApellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Cedula" Type="Int64" Nullable="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="NumCelular" Type="Int64" Nullable="false" />
+    <Property Name="Contrasenia" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Estado" Type="Int32" />
+    <Property Name="Token" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IdRol" Type="Int32" Nullable="false" />
+  </EntityType>
+</Schema>

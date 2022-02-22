@@ -1,0 +1,128 @@
+﻿@model Dominio.Usuarios
+
+@{
+    ViewBag.Title = "Nuevo Usuario";
+    Layout = "~/Views/Shared/_LayoutManage.cshtml";
+}
+@{ 
+    var lita = new List<SelectListItem>()
+    {
+        new SelectListItem()
+        {
+            Text = "Activo",
+            Value = "1"
+        },
+        new SelectListItem()
+        {
+            Text = "Inactivo",
+            Value = "0"
+        }
+    };
+}
+
+<div class="page-heading">
+    <div class="page-title">
+        <div class="row">
+            <div class="col-12 col-md-6 order-md-1 order-last">
+                <h3>Registrar Nuevo Usuario</h3>
+
+            </div>
+            <div class="col-12 col-md-6 order-md-2 order-first">
+                <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Gestión de Usuarios</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Usuarios</li>
+                        <li class="breadcrumb-item active" aria-current="page">Nuevo Usuarios</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <hr />
+
+    <section id="multiple-column-form">
+        <div class="row match-height">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="card-body">
+                            <form method="post" action="@Url.Action("Nuevo", "Usuarios")">
+                                
+                                <div class="row">
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label>Primer nombre <span>*</span></label>
+                                            @Html.TextBoxFor(X => X.PrimerNombre, new { @class = "form-control", @placeholder = "Primer nombre" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label>Segundo nombre</label>
+                                            @Html.TextBoxFor(X => X.SegundoNombre, new { @class = "form-control", @placeholder = "Segundo nombre" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label>Primer Apellido <span>*</span></label>
+                                            @Html.TextBoxFor(X => X.PrimerApellido, new { @class = "form-control", @placeholder = "Primer apellido" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label>Segundo Apellido</label>
+                                            @Html.TextBoxFor(X => X.SegundoApellido, new { @class = "form-control", @placeholder = "Segundo apellido" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label>Cédula <span>*</span></label>
+                                            @Html.TextBoxFor(X => X.Cedula, new { @class = "form-control", @placeholder = "Cédula" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label>Número telefónico <span>*</span></label>
+                                            @Html.TextBoxFor(X => X.NumCelular, new { @class = "form-control", @placeholder = "Teléfono" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label>Correo Electrónico <span>*</span></label>
+                                            @Html.TextBoxFor(X => X.Email, new { @class = "form-control", @placeholder = "correo electrónico" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label>Contraseña <span>*</span></label>
+                                            @Html.TextBoxFor(X => X.Contrasenia, new { @class = "form-control", @placeholder = "Contraseña" , @type = "password" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label>Estado <span>*</span></label>
+                                            @Html.TextBoxFor(X => X.Estado, new { @class = "form-control", @placeholder = "Estado" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label>Rol <span>*</span></label>
+                                            @Html.TextBoxFor(X => X.IdRol, new { @class = "form-control", @placeholder = "Código Rol" })
+                                        </div>
+                                    </div>
+                                    <div class="col-12 d-flex justify-content-end">
+                                        <button type="submit" class="btn btn-primary me-1 mb-1">Guardar</button>
+                                        <button type="reset" class="btn btn-light-secondary me-1 mb-1">Limpiar</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }

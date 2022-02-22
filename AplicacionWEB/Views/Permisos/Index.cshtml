@@ -1,0 +1,62 @@
+﻿@model List<Dominio.Permisos>
+@{
+    Layout = "~/Views/Shared/_LayoutManage.cshtml";
+    ViewBag.Title = "Index";
+}
+
+<div class="page-heading">
+    <div class="page-title">
+        <div class="row">
+            <div class="col-12 col-md-6 order-md-1 order-last">
+                <h3>Permisos</h3>
+            </div>
+            <div class="col-12 col-md-6 order-md-2 order-first">
+                <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Gestión de Usuarios</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Permisos</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <section class="section mt-3">
+        <div class="card">
+            <div class="card-header">
+
+                <a href="@Url.Action("Nuevo","Permisos")" class="btn btn-primary">Crear Permiso</a>
+            </div>
+            <div class="card-body">
+                <table class="table table-striped" id="table1">
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Vista</th>
+                            <th>Repositorio</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.IdPermiso)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Vista)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Ubicacion)</td>
+                                <td>
+                                    <a href="@Url.Action("Actualizar","Permisos", new { id = item.IdPermiso })" class="btn btn-success" title="Actualizar"><i class="bi bi-pen"></i></a>
+                                    <a href="@Url.Action("Eliminar","Permisos", new { id = item.IdPermiso })" class="btn btn-danger" title="Eliminar"><i class="bi bi-trash2-fill"></i></a>
+                                    <!--a href="@Url.Action("Detalle", "Permisos", new { id = item.IdPermiso })" class="btn btn-secondary" title="Detalle"><i class="bi bi-eye-fill"></i></a-->
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </section>
+</div>
+

@@ -1,0 +1,6 @@
+C:\Users\USUARIO\source\repos\PruebaTecnica\Dominio\bin\Debug\Dominio.dll
+C:\Users\USUARIO\source\repos\PruebaTecnica\Dominio\bin\Debug\Dominio.pdb
+C:\Users\USUARIO\source\repos\PruebaTecnica\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
+C:\Users\USUARIO\source\repos\PruebaTecnica\Dominio\obj\Debug\Dominio.dll
+C:\Users\USUARIO\source\repos\PruebaTecnica\Dominio\obj\Debug\Dominio.pdb
+C:\Users\USUARIO\source\repos\PruebaTecnica\Dominio\obj\Debug\Dominio.csproj.AssemblyReference.cache

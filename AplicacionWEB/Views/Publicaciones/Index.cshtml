@@ -1,0 +1,66 @@
+﻿@model List<Dominio.Publicaciones>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutManage.cshtml";
+}
+
+<div class="page-heading">
+    <div class="page-title">
+        <div class="row">
+            <div class="col-12 col-md-6 order-md-1 order-last">
+                <h3>Listado de publicaciones</h3>
+            </div>
+            <div class="col-12 col-md-6 order-md-2 order-first">
+                <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Publicaciones</a></li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <section class="section mt-3">
+        <div class="card">
+            <div class="card-header">
+
+                <a href="@Url.Action("Nuevo","Publicaciones")" class="btn btn-primary">Nueva Publicación</a>
+            </div>
+            <div class="card-body">
+                <table class="table table-striped" id="table1">
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Título</th>
+                            <th>Descripción</th>
+                            <th>Imagen</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.IdPublicacion)</td>
+                                <td>@Html.DisplayFor(modelItem => item.NombrePublicacion)</td>
+                                <td>@Html.DisplayFor(modelItem => item.DescripcionPublicacion)</td>
+                                <td>@Html.DisplayFor(modelItem => item.ImgPublicacion)</td>
+                                <td>
+                                    <a href="@Url.Action("Actualizar","Publicaciones", new { id = item.IdPublicacion })" class="btn btn-success" title="Actualizar"><i class="bi bi-pen"></i></a>
+                                    <a href="@Url.Action("Eliminar","Publicaciones", new { id = item.IdPublicacion })" class="btn btn-danger" title="Eliminar"><i class="bi bi-trash2-fill"></i></a>
+                                    <a href="@Url.Action("Detalle", "Publicaciones", new { id = item.IdPublicacion })" class="btn btn-secondary" title="Detalle"><i class="bi bi-eye-fill"></i></a>
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </section>
+</div>
+
+
+

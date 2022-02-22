@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB_PruebTecModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Permisos">
+    <Key>
+      <PropertyRef Name="IdPermiso" />
+    </Key>
+    <Property Name="IdPermiso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Vista" Type="varchar(max)" Nullable="false" />
+    <Property Name="Ubicacion" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Publicaciones">
+    <Key>
+      <PropertyRef Name="IdPublicacion" />
+    </Key>
+    <Property Name="IdPublicacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombrePublicacion" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DescripcionPublicacion" Type="varchar(max)" />
+    <Property Name="ImgPublicacion" Type="varchar(max)" />
+    <Property Name="Visible" Type="bit" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="IdRol" />
+    </Key>
+    <Property Name="IdRol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombreRol" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Roles_Permisos">
+    <Key>
+      <PropertyRef Name="IdRolPermiso" />
+    </Key>
+    <Property Name="IdRolPermiso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdRol" Type="int" Nullable="false" />
+    <Property Name="IdPermiso" Type="int" Nullable="false" />
+    <Property Name="Estado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="IdUsuario" />
+    </Key>
+    <Property Name="IdUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PrimerNombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SegundoNombre" Type="varchar" MaxLength="50" />
+    <Property Name="PrimerApellido" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SegundoApellido" Type="varchar" MaxLength="50" />
+    <Property Name="Cedula" Type="bigint" Nullable="false" />
+    <Property Name="Email" Type="varchar(max)" Nullable="false" />
+    <Property Name="NumCelular" Type="bigint" Nullable="false" />
+    <Property Name="Contrasenia" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Estado" Type="int" />
+    <Property Name="Token" Type="varchar" MaxLength="50" />
+    <Property Name="IdRol" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="DB_PruebTecModelStoreContainer">
+    <EntitySet Name="Permisos" EntityType="Self.Permisos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Publicaciones" EntityType="Self.Publicaciones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Roles_Permisos" EntityType="Self.Roles_Permisos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

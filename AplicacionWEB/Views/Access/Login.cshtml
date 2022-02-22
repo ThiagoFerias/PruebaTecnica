@@ -1,0 +1,73 @@
+﻿@model Dominio.WS.AccessViewModel
+@{
+    ViewBag.Title = "Login";
+}
+
+<div id="auth">
+
+    <div class="row h-100">
+        <div class="col-lg-4 d-none d-lg-block">
+            <div id="auth-right">
+
+            </div>
+        </div>
+        <div class="shadow col-lg-4 col-12 ">
+            <div id="auth-left">
+                <h1 class="auth-title mt-2">Log in</h1>
+                <form method="post" action="@Url.Action("Login", "Access")">
+                    <div class="form-group position-relative has-icon-left mb-4 mt-5">
+                        @Html.TextBoxFor(X => X.email, new { @class = "form-control form-control-xl", @placeholder = "Correo " })
+                        <div class="form-control-icon">
+                            <i class="bi bi-person"></i>
+                        </div>
+
+                    </div>
+                    <div class="form-group position-relative has-icon-left mb-4">
+                        @Html.TextBoxFor(X => X.password, new { @class = "form-control form-control-xl", @placeholder = "Contraseña " })
+                        <div class="form-control-icon">
+                            <i class="bi bi-shield-lock"></i>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary btn-block btn-lg shadow-lg mt-2">Ingresar</button>
+                </form>
+                <div class="text-center mt-5 fs-5">
+                    <p class="text-gray-600">
+                        ¿No tienes una cuenta? <a href="#" class="font-bold">
+                            Registrate
+                        </a>
+                    </p>
+                    <p><a class="font-bold" href="#">¿Se te olvidó tu contraseña?</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 d-none d-lg-block">
+            <div id="auth-right">
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<form method="post" action="@Url.Action("Login", "Access")">
+
+    <div class="row">
+        <div class="col-md-6 col-12">
+            <div class="form-group">
+                <label>Nombre del rol</label>
+                @Html.TextBoxFor(X => X.email, new { @class = "form-control", @placeholder = "Corre " })
+            </div>
+        </div>
+        <div class="col-md-6 col-12">
+            <div class="form-group">
+                <label>Nombre del rol</label>
+                @Html.TextBoxFor(X => X.password, new { @class = "form-control", @placeholder = "Contraseña " })
+            </div>
+        </div>
+
+        <div class="col-12 d-flex justify-content-end">
+            <button type="submit" class="btn btn-primary me-1 mb-1">Guardar</button>
+            <button type="reset" class="btn btn-light-secondary me-1 mb-1">Limpiar</button>
+        </div>
+    </div>
+</form>

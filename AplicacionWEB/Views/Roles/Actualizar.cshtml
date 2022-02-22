@@ -1,0 +1,62 @@
+﻿@model Dominio.Rolles
+@{
+    ViewBag.Title = "Actualizar";
+    Layout = "~/Views/Shared/_LayoutManage.cshtml";
+}
+
+<div class="page-heading">
+    <div class="page-title">
+        <div class="row">
+            <div class="col-12 col-md-6 order-md-1 order-last">
+                <h3>Actualizar Rol</h3>
+
+            </div>
+            <div class="col-12 col-md-6 order-md-2 order-first">
+                <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Gestión de Usuarios</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Roles</li>
+                        <li class="breadcrumb-item active" aria-current="page">Actualizar Rol</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <hr />
+
+    <section id="multiple-column-form">
+        <div class="row match-height">
+            <div class="col-6 ">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="card-body">
+                            <form method="post" action="@Url.Action("Actualizar", "Roles")">
+                                @Html.TextBoxFor(X => X.IdRol, new { @class = "form-control", @readonly = "readonly", @hidden = "true" })
+                                <div class="row">
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label>Nombre del rol</label>
+                                            @Html.TextBoxFor(X => X.NombreRol, new { @class = "form-control", @placeholder = "Nombre del rol " })
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 d-flex justify-content-end">
+                                        <button type="submit" class="btn btn-primary me-1 mb-1">Actualizar</button>
+                                        <a href="@Url.Action("Index","Roles")" class="btn btn-secondary me-1 mb-1">Regresar</a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
